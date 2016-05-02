@@ -1,7 +1,6 @@
 import {autoinject, singleton, bindable} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-http-client';
 
-import * as $ from "jquery";
 import 'bootstrap';
 import 'bootstrap-tagsinput';
 
@@ -14,7 +13,7 @@ export class Flickr {
   url: string;
   http: HttpClient;
   @bindable tags: string[] = ["cathedral"];
-  
+  select;
 
   constructor(http: HttpClient) {
     this.http = http;
@@ -39,10 +38,17 @@ export class Flickr {
   addTag(tag: string) {
     console.log("new tag: " + tag);
     this.tags.push(tag);
+    this.select.tagsinput("add", tag);
   }
 
   async activate() {
     console.log("activate");
+    return this.fetchData();
+  }
+  
+  attached(){
+    this.select = <any>$("select");
+    this.select.tagsinput();
   }
 
   /*  
