@@ -5,10 +5,8 @@
       <div class="form-group">
         <div class="bs-example">
           <label>Tags selection: </label>
-          <select ><option repeat.for="tag of tags" value.bind="tag"/>${tag}</select> 
+          <select multiple><option repeat.for="tag of tags" value.bind="tag"/>${tag}</select> 
           <button click.trigger="fetchData()" class="btn btn-default">Submit</button>
-          <label>Array binded to input field: </label>
-          <input data-role="tagsinput" type="text" value.bind="tags"/>
         </div>
       </div>
     </form>

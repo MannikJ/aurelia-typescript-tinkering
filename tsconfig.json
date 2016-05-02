@@ -18,6 +18,7 @@
     "./src/**/*.ts",
     "./test/**/*.ts",
     "./typings/browser.d.ts",
+    "./typings/main.d.ts",
     "./custom_typings/**/*.d.ts",
     "./jspm_packages/**/*.d.ts"
   ],
