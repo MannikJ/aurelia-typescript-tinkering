@@ -1,0 +1,26 @@
+<template>
+ <require from="bootstrap-tagsinput/dist/bootstrap-tagsinput.css"></require>   
+ <section>
+    <form role="form">
+      <div class="form-group">
+            <div class="bs-example">
+            <label>Tags</label>
+            <select><option repeat.for="tag of tags" value.bind="tag"/>${tag}</select> 
+          </div>
+      <button click.trigger="fetchData()" class="btn btn-default">Submit</button>
+       <input data-role="tagsinput" type="text" value.bind="tags"/>
+       <button click.trigger="addTag()" class="btn btn-default">Add Tag</button>
+      </div>
+    </form>
+  </section>
+  <section>
+      <h2>${heading}</h2>
+      <div class="row">
+        <div class="col-sm-6 col-md-3 flickr-img au-animate" repeat.for="image of images">
+          <a class="thumbnail">
+            <img src.bind="image.media.m"/>
+          </a>
+        </div>
+      </div>
+  </section>
+</template>
