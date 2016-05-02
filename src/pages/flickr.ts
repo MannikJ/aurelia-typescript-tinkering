@@ -13,7 +13,8 @@ export class Flickr {
   images: any[] = [];
   url: string;
   http: HttpClient;
-  @bindable tags: string[] = ["default"];
+  @bindable tags: string[] = ["cathedral"];
+  
 
   constructor(http: HttpClient) {
     this.http = http;
@@ -34,11 +35,6 @@ export class Flickr {
       this.images = response.content.items;
     });
   }
-  
-  tagsChanged(newVal:string[]){
-    this.tags=newVal;
-    this.fetchData();
-  }
 
   addTag(tag: string) {
     console.log("new tag: " + tag);
@@ -47,11 +43,6 @@ export class Flickr {
 
   async activate() {
     console.log("activate");
-  }
-  
-  attached(){
-    console.log("attached");
-    $('selector').tagsinput();
   }
 
   /*  
